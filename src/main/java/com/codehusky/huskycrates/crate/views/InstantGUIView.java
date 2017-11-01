@@ -2,7 +2,9 @@ package com.codehusky.huskycrates.crate.views;
 
 import com.codehusky.huskycrates.HuskyCrates;
 import com.codehusky.huskycrates.crate.VirtualCrate;
+import com.codehusky.huskycrates.crate.config.CrateReward;
 import com.codehusky.huskycrates.exceptions.RandomItemSelectionFailureException;
+import java.util.concurrent.TimeUnit;
 import org.spongepowered.api.Sponge;
 import org.spongepowered.api.data.key.Keys;
 import org.spongepowered.api.data.type.DyeColor;
@@ -17,11 +19,7 @@ import org.spongepowered.api.item.inventory.ItemStack;
 import org.spongepowered.api.item.inventory.property.InventoryTitle;
 import org.spongepowered.api.scheduler.Scheduler;
 import org.spongepowered.api.scheduler.Task;
-import org.spongepowered.api.text.Text;
 import org.spongepowered.api.text.serializer.TextSerializers;
-import com.codehusky.huskycrates.crate.config.CrateReward;
-
-import java.util.concurrent.TimeUnit;
 
 public class InstantGUIView extends CrateView {
     private Inventory disp;
@@ -92,7 +90,6 @@ public class InstantGUIView extends CrateView {
                 .itemType(ItemTypes.STAINED_GLASS_PANE)
                 .add(Keys.DYE_COLOR,colors[(int)Math.floor(Math.random() * colors.length)])
                 .build();
-        g.offer(Keys.DISPLAY_NAME, Text.of("HuskyCrates"));
         return g;
     }
     private void updateTick() {

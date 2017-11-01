@@ -87,7 +87,6 @@ public class RouletteCrateView extends CrateView {
                     }else{
                         border = ItemStack.builder().itemType(ItemTypes.STAINED_GLASS_PANE).add(Keys.DYE_COLOR,DyeColors.GRAY).build();
                     }
-                    border.offer(Keys.DISPLAY_NAME,Text.of(TextStyles.RESET,"HuskyCrates"));
                     ArrayList<Text> itemLore = new ArrayList<>();
                     itemLore.add(Text.of(TextColors.DARK_GRAY, "Click anywhere to stop!"));
                     itemLore.add(Text.of(TextColors.DARK_GRAY, "Seconds remaining: " + secRemain));

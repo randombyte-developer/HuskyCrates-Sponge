@@ -86,10 +86,8 @@ public class SpinnerCrateView extends CrateView {
     }
     private void updateInv(int state) {
         ItemStack border = ItemStack.builder().itemType(ItemTypes.STAINED_GLASS_PANE).add(Keys.DYE_COLOR,DyeColors.BLACK).build();
-        border.offer(Keys.DISPLAY_NAME,Text.of(TextStyles.RESET,"HuskyCrates"));
         //border.offer(Keys.ITEM_LORE,lore);
         ItemStack selector = ItemStack.of(ItemTypes.REDSTONE_TORCH,1);
-        selector.offer(Keys.DISPLAY_NAME,Text.of(TextStyles.RESET,"HuskyCrates"));
         //selector.offer(Keys.ITEM_LORE,lore);
         int slotnum = 0;
         for(Inventory e : disp.slots()){

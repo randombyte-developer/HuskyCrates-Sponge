@@ -1,36 +1,25 @@
 package com.codehusky.huskycrates.crate;
 
+import java.util.List;
+import java.util.Optional;
+import java.util.Set;
 import org.spongepowered.api.command.CommandSource;
 import org.spongepowered.api.service.context.Context;
 import org.spongepowered.api.service.permission.Subject;
 import org.spongepowered.api.service.permission.SubjectCollection;
 import org.spongepowered.api.service.permission.SubjectData;
-import org.spongepowered.api.service.permission.SubjectReference;
 import org.spongepowered.api.text.Text;
 import org.spongepowered.api.text.channel.MessageChannel;
 import org.spongepowered.api.util.Tristate;
-
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
 
 /**
  * Created by lokio on 1/16/2017.
  */
 public class CrateCommandSource implements CommandSource {
+
     @Override
     public String getName() {
         return "HuskyCrates";
-    }
-
-    @Override
-    public boolean hasPermission(String permission) {
-        return true;
-    }
-
-    @Override
-    public boolean hasPermission(Set<Context> contexts, String permission) {
-        return true;
     }
 
     @Override
@@ -44,16 +33,6 @@ public class CrateCommandSource implements CommandSource {
     }
 
     @Override
-    public SubjectReference asSubjectReference() {
-        return null;
-    }
-
-    @Override
-    public boolean isSubjectDataPersisted() {
-        return false;
-    }
-
-    @Override
     public SubjectData getSubjectData() {
         return null;
     }
@@ -64,22 +43,22 @@ public class CrateCommandSource implements CommandSource {
     }
 
     @Override
-    public Tristate getPermissionValue(Set<Context> set, String s) {
+    public Tristate getPermissionValue(Set<Context> contexts, String permission) {
         return null;
     }
 
     @Override
-    public boolean isChildOf(Set<Context> set, SubjectReference subjectReference) {
+    public boolean isChildOf(Set<Context> contexts, Subject parent) {
         return false;
     }
 
     @Override
-    public List<SubjectReference> getParents(Set<Context> set) {
+    public List<Subject> getParents(Set<Context> contexts) {
         return null;
     }
 
     @Override
-    public Optional<String> getOption(Set<Context> set, String s) {
+    public Optional<String> getOption(Set<Context> contexts, String key) {
         return null;
     }
 
@@ -94,7 +73,7 @@ public class CrateCommandSource implements CommandSource {
     }
 
     @Override
-    public void sendMessage(Text text) {
+    public void sendMessage(Text message) {
 
     }
 
@@ -104,7 +83,7 @@ public class CrateCommandSource implements CommandSource {
     }
 
     @Override
-    public void setMessageChannel(MessageChannel messageChannel) {
+    public void setMessageChannel(MessageChannel channel) {
 
     }
 }

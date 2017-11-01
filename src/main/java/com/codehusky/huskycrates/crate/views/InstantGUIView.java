@@ -19,6 +19,7 @@ import org.spongepowered.api.item.inventory.ItemStack;
 import org.spongepowered.api.item.inventory.property.InventoryTitle;
 import org.spongepowered.api.scheduler.Scheduler;
 import org.spongepowered.api.scheduler.Task;
+import org.spongepowered.api.text.Text;
 import org.spongepowered.api.text.serializer.TextSerializers;
 
 public class InstantGUIView extends CrateView {
@@ -90,6 +91,7 @@ public class InstantGUIView extends CrateView {
                 .itemType(ItemTypes.STAINED_GLASS_PANE)
                 .add(Keys.DYE_COLOR,colors[(int)Math.floor(Math.random() * colors.length)])
                 .build();
+        g.offer(Keys.DISPLAY_NAME, Text.EMPTY);
         return g;
     }
     private void updateTick() {

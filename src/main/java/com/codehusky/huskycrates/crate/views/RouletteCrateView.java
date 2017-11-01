@@ -91,6 +91,7 @@ public class RouletteCrateView extends CrateView {
                     itemLore.add(Text.of(TextColors.DARK_GRAY, "Click anywhere to stop!"));
                     itemLore.add(Text.of(TextColors.DARK_GRAY, "Seconds remaining: " + secRemain));
                     border.offer(Keys.ITEM_LORE, itemLore);
+                    border.offer(Keys.DISPLAY_NAME, Text.EMPTY);
                     e.set(border);
                 }
             }else if(!stopped&&(tickCount == 0 || Math.round(tickCount/speed) > Math.round((tickCount-1)/speed))){

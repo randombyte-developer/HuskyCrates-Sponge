@@ -1,6 +1,10 @@
 package com.codehusky.huskycrates.crate.views;
 
+import com.codehusky.huskycrates.HuskyCrates;
 import com.codehusky.huskycrates.crate.VirtualCrate;
+import com.codehusky.huskycrates.crate.config.CrateReward;
+import com.codehusky.huskycrates.exceptions.RandomItemSelectionFailureException;
+import java.util.Random;
 import org.spongepowered.api.Sponge;
 import org.spongepowered.api.data.key.Keys;
 import org.spongepowered.api.data.type.DyeColor;
@@ -16,13 +20,7 @@ import org.spongepowered.api.item.inventory.property.InventoryTitle;
 import org.spongepowered.api.scheduler.Scheduler;
 import org.spongepowered.api.scheduler.Task;
 import org.spongepowered.api.text.Text;
-import org.spongepowered.api.text.format.TextStyles;
 import org.spongepowered.api.text.serializer.TextSerializers;
-import com.codehusky.huskycrates.HuskyCrates;
-import com.codehusky.huskycrates.crate.config.CrateReward;
-import com.codehusky.huskycrates.exceptions.RandomItemSelectionFailureException;
-
-import java.util.Random;
 
 /**
  * Created by lokio on 12/28/2016.
@@ -87,8 +85,10 @@ public class SpinnerCrateView extends CrateView {
     private void updateInv(int state) {
         ItemStack border = ItemStack.builder().itemType(ItemTypes.STAINED_GLASS_PANE).add(Keys.DYE_COLOR,DyeColors.BLACK).build();
         //border.offer(Keys.ITEM_LORE,lore);
+        border.offer(Keys.DISPLAY_NAME, Text.EMPTY);
         ItemStack selector = ItemStack.of(ItemTypes.REDSTONE_TORCH,1);
         //selector.offer(Keys.ITEM_LORE,lore);
+        selector.offer(Keys.DISPLAY_NAME, Text.EMPTY);
         int slotnum = 0;
         for(Inventory e : disp.slots()){
             if(state == 0 && (slotnum == 4 || slotnum == 22 )){
@@ -129,7 +129,7 @@ public class SpinnerCrateView extends CrateView {
                 .itemType(ItemTypes.STAINED_GLASS_PANE)
                 .add(Keys.DYE_COLOR,colors[(int)Math.floor(Math.random() * colors.length)])
                 .build();
-        g.offer(Keys.DISPLAY_NAME,Text.of(TextStyles.RESET,"You won an item!"));
+        g.offer(Keys.DISPLAY_NAME, Text.EMPTY);
         return g;
     }
     private CrateReward giveToPlayer;

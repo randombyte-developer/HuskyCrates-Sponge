@@ -86,4 +86,14 @@ public class CrateCommandSource implements CommandSource {
     public void setMessageChannel(MessageChannel channel) {
 
     }
+
+    @Override
+    public boolean hasPermission(Set<Context> contexts, String permission) {
+        return true;
+    }
+
+    @Override
+    public boolean hasPermission(String permission) {
+        return true;
+    }
 }
